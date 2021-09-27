@@ -16,7 +16,7 @@ describe('loadTokenMetadata$', () => {
     mockTokenMetadataApi.get.mockReturnValue(Promise.resolve({ data: mockApiResponse }));
   });
 
-  it('should return correct TokenMetadataInterface structure', done =>
+  it('should return correct TokenMetadataInterface structure', done => {
     loadTokenMetadata$(mockAddress, mockId).subscribe(
       rxJsTestingHelper(tokenMetadata => {
         expect(tokenMetadata.id).toEqual(mockId);
@@ -26,14 +26,16 @@ describe('loadTokenMetadata$', () => {
         expect(tokenMetadata.name).toEqual(mockApiResponse.name);
         expect(tokenMetadata.thumbnailUri).toEqual(mockApiResponse.thumbnailUri);
       }, done)
-    ));
+    );
+  });
 
-  it('should set default id if it was not provided', done =>
+  it('should set default id if it was not provided', done => {
     loadTokenMetadata$(mockAddress).subscribe(
       rxJsTestingHelper(tokenMetadata => {
         expect(tokenMetadata.id).toEqual(0);
       }, done)
-    ));
+    );
+  });
 
   it('should set symbol from name first 8 symbols if token has no symbol', done => {
     const mockApiResponseWithoutSymbol = {

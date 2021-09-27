@@ -12,9 +12,9 @@ describe('tzktUrl', () => {
 });
 
 describe('openUrl', () => {
-  beforeEach(() => {
-    mockLinking.openURL.mockReset();
-  });
+  beforeAll(() => jest.useFakeTimers());
+
+  beforeEach(() => mockLinking.openURL.mockReset());
 
   it('should open valid link', () => {
     const mockValidUrl = 'https://tzkt.io/';

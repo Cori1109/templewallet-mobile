@@ -1,6 +1,5 @@
-process.env.TZ = 'UTC';
 module.exports = {
-  preset: 'react-native',
+  preset: 'ts-jest',
   transformIgnorePatterns: [
     'node_modules/(?!((jest-)?@react-native|react-native|react-navigation|@react-navigation/.*|lodash-es|@sentry/.*))'
   ],
@@ -8,5 +7,5 @@ module.exports = {
   moduleNameMapper: {
     '\\.svg': '<rootDir>/src/mocks/svg.mock.js'
   },
-  timers: 'fake'
+  moduleFileExtensions: ["ts", "tsx", "js", "jsx", "json", "node"]
 };

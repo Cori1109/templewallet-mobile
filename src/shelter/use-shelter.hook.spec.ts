@@ -17,6 +17,8 @@ import { useShelter } from './use-shelter.hook';
 describe('useShelter', () => {
   const mockSuccessCallback = jest.fn();
 
+  beforeAll(() => jest.useFakeTimers());
+
   beforeEach(() => {
     mockShelter.importHdAccount$.mockClear();
     mockShelter.enableBiometryPassword$.mockClear();
